@@ -1,0 +1,881 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTU-Daanbantayan | Event Attendance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOGIN PAGE -->
+    <section id="loginPage" class="login-page">
+
+        <div class="login-photo" aria-label="CTU campus photo">
+            <div class="login-photo-content">
+                <img
+                    src="images/ctu_logo.png"
+                    alt="CTU logo"
+                    class="login-hero-logo"
+                    onerror="this.style.display='none'"
+                >
+
+                <div class="login-campus-text"></div>
+
+                <h2>
+                    Cebu Technological University<br>
+                    Daanbantayan Campus
+                </h2>
+
+                <p>Event Attendance Management System</p>
+            </div>
+        </div>
+
+        <div class="login-card">
+            <p class="eyebrow">CTU-DAANBANTAYAN CAMPUS</p>
+
+            <h1 id="loginHeading">Welcome Back!</h1>
+            <p class="login-subtitle">Sign in to continue</p>
+
+            <div class="account-toggle" role="group" aria-label="Choose account category">
+                <button
+                    type="button"
+                    class="account-toggle-btn active"
+                    data-account="user"
+                    aria-pressed="true"
+                >
+                    User
+                </button>
+
+                <button
+                    type="button"
+                    class="account-toggle-btn"
+                    data-account="admin"
+                    aria-pressed="false"
+                >
+                    Admin
+                </button>
+            </div>
+
+            <div id="userTypeGroup" class="user-type-group">
+                <label for="loginUserType">I am a</label>
+
+                <select id="loginUserType">
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+            </div>
+
+            <form id="loginForm">
+                <label for="loginEmail">Email address</label>
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="Enter your email"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="loginPassword">Password</label>
+
+                <div class="password-wrap">
+                    <input
+                        id="loginPassword"
+                        type="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        data-target="loginPassword"
+                        aria-label="Show password"
+                    >
+                        👁
+                    </button>
+                </div>
+
+                <button class="primary-btn login-submit" type="submit">
+                    Log In
+                </button>
+            </form>
+
+            <p class="register-line" id="registerLine">
+                Don't have an account?
+                <a href="#" id="showRegister">Create Account</a>
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- REGISTRATION PAGE -->
+    <section id="registerPage" class="register-page hidden">
+
+        <div class="register-card">
+            <button class="text-btn" id="backToLogin">
+                ← Back to login
+            </button>
+
+            <h1>Create Account</h1>
+            <p>Register once to use the attendance system.</p>
+
+            <form id="registerForm" class="register-grid">
+
+                <div>
+                    <label for="regUserType">Account type</label>
+                    <select id="regUserType">
+                        <option value="student">Student</option>
+                        <option value="faculty">Faculty</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="regId" id="regIdLabel">Student ID</label>
+                    <input id="regId" required placeholder="Enter Student ID">
+                </div>
+
+                <div>
+                    <label for="regName">Full name</label>
+                    <input id="regName" required placeholder="Full name">
+                </div>
+
+                <div>
+                    <label for="regEmail">Email</label>
+                    <input
+                        id="regEmail"
+                        type="email"
+                        required
+                        placeholder="Email address"
+                    >
+                </div>
+
+                <div>
+                    <label for="regDepartment">Department</label>
+                    <select id="regDepartment" required>
+                        <option value="">Select department</option>
+                        <option>Department of Education</option>
+                        <option>Department of Technology and Engineering</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="regProgram">Program</label>
+                    <select id="regProgram" required>
+                        <option value="">Select department first</option>
+                    </select>
+                </div>
+
+                <div id="regYearWrap">
+                    <label for="regYear">Year level</label>
+                    <select id="regYear">
+                        <option value="">Select year</option>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                    </select>
+                </div>
+
+                <div id="regSectionWrap">
+                    <label for="regSection">Section</label>
+                    <input id="regSection" placeholder="e.g. A">
+                </div>
+
+                <div>
+                    <label for="regPassword">Password</label>
+
+                    <div class="password-wrap">
+                        <input
+                            id="regPassword"
+                            type="password"
+                            required
+                            minlength="8"
+                            placeholder="At least 8 characters"
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="regPassword"
+                        >
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="regConfirmPassword">Confirm password</label>
+
+                    <div class="password-wrap">
+                        <input
+                            id="regConfirmPassword"
+                            type="password"
+                            required
+                            minlength="8"
+                            placeholder="Re-enter password"
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            data-target="regConfirmPassword"
+                        >
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <div class="full">
+                    <button class="primary-btn" type="submit">
+                        Create Account
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </section>
+
+
+    <!-- MAIN APPLICATION -->
+    <main id="appPage" class="app-page hidden">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <img
+                    src="images/ctu_logo.png"
+                    alt="CTU logo"
+                    onerror="this.style.display='none'"
+                >
+
+                <div>
+                    <strong>CTU</strong>
+                    <small>Daanbantayan Campus</small>
+                </div>
+            </div>
+
+            <nav id="navigation">
+                <button class="nav-link active" data-view="dashboard">
+                    ⌂ <span>Dashboard</span>
+                </button>
+
+                <button class="nav-link" data-view="calendar">
+                    ▦ <span>Event Calendar</span>
+                </button>
+
+                <button class="nav-link admin-only" data-view="events">
+                    ＋ <span>Event Management</span>
+                </button>
+
+                <button class="nav-link" data-view="qr">
+                    ▣ <span>QR Attendance</span>
+                </button>
+
+                <button class="nav-link" data-view="records">
+                    ☷ <span>Attendance Records</span>
+                </button>
+
+                <button class="nav-link admin-only" data-view="reports">
+                    ▤ <span>Attendance Reports</span>
+                </button>
+
+                <button class="nav-link admin-only" data-view="users">
+                    ♙ <span>User Management</span>
+                </button>
+
+                <button class="nav-link" data-view="profile">
+                    ⚙ <span>My Profile</span>
+                </button>
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn">
+                ↪ <span>Log out</span>
+            </button>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT AREA -->
+        <section class="main-area">
+
+            <!-- TOPBAR -->
+
+                <header class="topbar">
+
+                <button
+                  type="button"
+                  id="menuToggle"
+                  class="menu-toggle"
+                  aria-label="Open navigation menu"
+                  aria-expanded="false"
+                 >
+                 ☰
+                 </button>
+
+                <div class="topbar-heading">
+                    <h1 id="pageTitle">Hello!</h1>
+                    <p id="topbarSubtitle">Student Dashboard</p>
+                </div>
+
+                <div class="topbar-right">
+
+                    <div class="notification-wrapper">
+
+                        <button
+                            type="button"
+                            class="notification-btn"
+                            id="notificationBtn"
+                            title="Notifications"
+                        >
+                            <span class="bell-icon">🔔</span>
+                            <span class="notification-dot hidden" id="notificationDot"></span>
+                        </button>
+
+                        <div class="notification-panel hidden" id="notificationPanel">
+
+                            <div class="notification-header">
+                                <strong>Notifications</strong>
+                                <button type="button" id="closeNotifications">×</button>
+                            </div>
+
+                            <div id="notificationList">
+                                <p class="muted">No notifications yet.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="user-chip">
+                        <span class="user-avatar">A</span>
+
+                        <div class="user-info">
+                            <strong>Admin</strong>
+                            <small id="userDisplay">System Administrator</small>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+
+            <!-- DASHBOARD VIEW -->
+            <section id="dashboardView" class="view">
+
+                <div id="studentBanner" class="student-banner hidden">
+                    <div>
+                        <h2 id="dashboardBannerTitle">
+                            Learn Today, Lead Tomorrow.
+                        </h2>
+                        <p>Empowering CTU Students Through Education</p>
+                    </div>
+                </div>
+
+                <div class="stat-grid">
+
+                    <article class="stat-card gold">
+                        <span>Upcoming Events</span>
+                        <strong id="upcomingCount">0</strong>
+                    </article>
+
+                    <article class="stat-card green">
+                        <span>Total Attendees</span>
+                        <strong id="totalCount">0</strong>
+                    </article>
+
+                    <article class="stat-card gold">
+                        <span>Present</span>
+                        <strong id="presentCount">0</strong>
+                    </article>
+
+                    <article class="stat-card green">
+                        <span>Absent</span>
+                        <strong id="absentCount">0</strong>
+                    </article>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <article class="panel calendar-panel">
+
+                        <div class="panel-heading">
+                            <h2>Event Calendar</h2>
+                            <button class="small-btn" data-go="calendar">
+                                View calendar
+                            </button>
+                        </div>
+
+                        <div id="miniCalendar" class="mini-calendar"></div>
+
+                    </article>
+
+                    <article class="panel recent-panel">
+
+                        <div class="panel-heading">
+                            <h2>Recent Events</h2>
+                            <button class="small-btn" data-go="calendar">
+                                View all
+                            </button>
+                        </div>
+
+                        <div id="recentEvents" class="event-list"></div>
+
+                    </article>
+
+                </div>
+
+                <article class="panel overview-panel">
+
+                    <div class="panel-heading">
+                        <h2>Attendance Overview</h2>
+                        <span class="muted">Demo summary</span>
+                    </div>
+
+                    <div class="overview-content">
+
+                        <div class="donut">
+                            <div>
+                                <strong id="donutPercent">0%</strong>
+                                <small>Present</small>
+                            </div>
+                        </div>
+
+                        <div class="overview-legend">
+                            <p>
+                                <i class="dot present-dot"></i>
+                                Present <b id="legendPresent">0</b>
+                            </p>
+
+                            <p>
+                                <i class="dot absent-dot"></i>
+                                Absent <b id="legendAbsent">0</b>
+                            </p>
+
+                            <p>
+                                <i class="dot upcoming-dot"></i>
+                                Upcoming events <b id="legendUpcoming">0</b>
+                            </p>
+                        </div>
+
+                    </div>
+                </article>
+
+            </section>
+
+
+            <!-- EVENT CALENDAR VIEW -->
+            <section id="calendarView" class="view hidden">
+
+                <article class="panel">
+
+                    <div class="panel-heading">
+                        <h2>Event Calendar</h2>
+
+                        <div class="month-controls">
+                            <button id="prevMonth">‹</button>
+                            <strong id="monthLabel"></strong>
+                            <button id="nextMonth">›</button>
+                        </div>
+                    </div>
+
+                    <div id="fullCalendar" class="full-calendar"></div>
+
+                </article>
+
+            </section>
+
+
+            <!-- EVENT MANAGEMENT VIEW -->
+            <section id="eventsView" class="view hidden">
+
+                <article class="panel">
+
+                    <h2>Create an Event</h2>
+
+                    <form id="eventForm" class="event-form">
+
+                        <div>
+                            <label for="eventTitle">Event title</label>
+                            <input
+                                id="eventTitle"
+                                required
+                                placeholder="e.g. University Intramurals"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="eventDate">Date</label>
+                            <input id="eventDate" type="date" required>
+                        </div>
+
+                        <div>
+                            <label for="eventVenue">Venue / Location Name</label>
+                            <input
+                                id="eventVenue"
+                                required
+                                placeholder="e.g. CTU-Daanbantayan Campus"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="eventTarget">Target group</label>
+
+                            <select id="eventTarget" required>
+                                <option value="">Select target group</option>
+                                <option value="All Students">All Students</option>
+
+                                <optgroup label="Department of Education">
+                                    <option value="BSED-MATH">BSED-MATH</option>
+                                    <option value="BEED">BEED</option>
+                                    <option value="BTLED">BTLED</option>
+                                </optgroup>
+
+                                <optgroup label="Department of Technology and Engineering">
+                                    <option value="BSIT">BSIT</option>
+                                    <option value="BIT-Automotive">BIT-Automotive</option>
+                                    <option value="BIT-Electronic">BIT-Electronic</option>
+                                    <option value="BIT-Computer Technology">BIT-Computer Technology</option>
+                                    <option value="BSHM">BSHM</option>
+                                    <option value="BSFI">BSFI</option>
+                                    <option value="BSIE">BSIE</option>
+                                </optgroup>
+
+                                <option value="All Faculty">All Faculty</option>
+                                <option value="All Students and Faculty">
+                                    All Students and Faculty
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="full">
+                            <label>GPS Location of Event Venue</label>
+
+                            <button
+                                type="button"
+                                class="small-btn"
+                                id="getEventLocationBtn"
+                            >
+                                📍 Get Current Location
+                            </button>
+
+                            <p id="eventLocationMessage" class="muted">
+                                Go to the actual event venue before getting its GPS location.
+                            </p>
+                        </div>
+
+                        <div>
+                            <label for="eventLatitude">Latitude</label>
+                            <input
+                                id="eventLatitude"
+                                type="number"
+                                step="any"
+                                placeholder="Latitude"
+                                readonly
+                            >
+                        </div>
+
+                        <div>
+                            <label for="eventLongitude">Longitude</label>
+                            <input
+                                id="eventLongitude"
+                                type="number"
+                                step="any"
+                                placeholder="Longitude"
+                                readonly
+                            >
+                        </div>
+
+                        <div>
+                            <label for="eventRadius">Allowed GPS Radius (meters)</label>
+
+                            <select id="eventRadius" required>
+                                <option value="50">50 meters</option>
+                                <option value="100" selected>100 meters</option>
+                                <option value="150">150 meters</option>
+                                <option value="200">200 meters</option>
+                            </select>
+                        </div>
+
+                        <div class="full">
+                            <button class="primary-btn" type="submit">
+                                Save Event
+                            </button>
+                        </div>
+
+                    </form>
+                </article>
+
+                <article class="panel">
+                    <h2>Managed Events</h2>
+                    <div id="managedEvents" class="event-list"></div>
+                </article>
+
+            </section>
+
+
+            <!-- QR ATTENDANCE VIEW -->
+            <section id="qrView" class="view hidden">
+
+                <!-- ADMIN QR SECTION -->
+                <div id="adminQRSection" class="qr-layout hidden">
+
+                    <article class="panel qr-panel qr-controls">
+
+                        <h2>▣ QR Code Attendance</h2>
+                        <p>Generate QR code for the selected event.</p>
+
+                        <div class="qr-select-box">
+                            <label for="qrEventSelect">Select Event:</label>
+
+                            <select id="qrEventSelect">
+                                <option value="">Choose an event</option>
+                            </select>
+                        </div>
+
+                        <button class="primary-btn" id="generateQRBtn">
+                            ▦ Generate QR Code
+                        </button>
+
+                        <p id="adminQRMessage"></p>
+
+                    </article>
+
+                    <article
+                        id="adminQRDisplay"
+                        class="panel qr-display qr-result-card hidden"
+                    >
+
+                        <div class="qr-result-header">
+                            <h3 id="qrEventTitle">Event QR Code</h3>
+                        </div>
+
+                        <div class="qr-result-body">
+                            <div id="qrCodeOutput"></div>
+
+                            <p class="muted">
+                                Scan this code using your phone to record your attendance.
+                            </p>
+
+                            <p id="qrExpiration"></p>
+
+                            <button class="small-btn" id="projectorBtn">
+                                Open Projector Display
+                            </button>
+
+                            <button class="small-btn" id="closeQRBtn">
+                                Close Attendance
+                            </button>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- STUDENT QR SECTION -->
+                <div id="studentQRSection" class="qr-layout hidden">
+
+                    <article class="panel qr-panel">
+
+                        <h2>Scan Event QR Code</h2>
+
+                        <p>
+                            Scan the QR code displayed by the event organizer
+                            to record your attendance.
+                        </p>
+
+                        <div id="scannerContainer">
+                            <div id="qrReader"></div>
+                        </div>
+
+                        <button class="primary-btn" id="startScannerBtn">
+                            Open Camera Scanner
+                        </button>
+
+                        <button class="small-btn hidden" id="stopScannerBtn">
+                            Stop Scanner
+                        </button>
+
+                        <div id="studentScanMessage"></div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ATTENDANCE RECORDS VIEW -->
+            <section id="recordsView" class="view hidden">
+
+                <article class="panel">
+
+                    <div class="panel-heading">
+                        <h2>Attendance Records</h2>
+                        <button class="small-btn" id="exportRecords">
+                            Export CSV
+                        </button>
+                    </div>
+
+                    <div class="table-wrap">
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Name / ID</th>
+                                    <th>Department</th>
+                                    <th>Program</th>
+                                    <th>Event</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="recordsBody"></tbody>
+
+                        </table>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ATTENDANCE REPORTS VIEW -->
+            <section id="reportsView" class="view hidden">
+
+                <article class="panel">
+
+                    <h2>Attendance Reports</h2>
+
+                    <div class="filter-grid">
+
+                        <select id="filterDepartment">
+                            <option value="">All departments</option>
+                            <option>Department of Education</option>
+                            <option>Department of Technology and Engineering</option>
+                        </select>
+
+                        <select id="filterProgram">
+                            <option value="">All programs</option>
+                        </select>
+
+                        <select id="filterYear">
+                            <option value="">All year levels</option>
+                            <option>1st Year</option>
+                            <option>2nd Year</option>
+                            <option>3rd Year</option>
+                            <option>4th Year</option>
+                        </select>
+
+                        <input
+                            id="filterSection"
+                            placeholder="Section (optional)"
+                        >
+
+                        <button class="primary-btn" id="applyFilters">
+                            Apply filters
+                        </button>
+
+                        <button class="small-btn" id="exportReport">
+                            Export CSV
+                        </button>
+
+                    </div>
+
+                    <p id="reportSummary" class="muted">
+                        Choose filters to view the report.
+                    </p>
+
+                    <div class="table-wrap">
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Program</th>
+                                    <th>Year</th>
+                                    <th>Section</th>
+                                    <th>Event</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="reportBody"></tbody>
+
+                        </table>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- USER MANAGEMENT VIEW -->
+            <section id="usersView" class="view hidden">
+
+                <article class="panel">
+
+                    <h2>Registered Users</h2>
+
+                    <div class="table-wrap">
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Program</th>
+                                    <th>Year</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="usersBody"></tbody>
+
+                        </table>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- MY PROFILE VIEW -->
+            <section id="profileView" class="view hidden">
+
+                <article class="panel profile-panel">
+                    <h2>My Profile</h2>
+                    <div id="profileDetails"></div>
+                </article>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer>
+                CTU-Daanbantayan Campus · Event Attendance Management System
+            </footer>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT LIBRARIES -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <!-- MAIN JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

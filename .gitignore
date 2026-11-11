@@ -1,0 +1,11 @@
+
+# Protect database credentials
+config/database.php
+
+# Ignore local environment settings
+.env
+
+# Ignore VS Code settings
+.vscode/
+
+uploads/

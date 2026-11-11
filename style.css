@@ -1,0 +1,1959 @@
+
+/* =========================================
+   CTU-DAANBANTAYAN EVENT ATTENDANCE SYSTEM
+   CLEANED AND ORGANIZED CSS
+========================================= */
+
+/* =========================================
+   1. GENERAL SETTINGS
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --green: #176139;
+    --green-dark: #0c4823;
+    --green-light: #e0f0df;
+    --gold: #d6b32f;
+    --orange: #f5b967;
+    --ink: #172318;
+    --cream: #fbf4e7;
+    --cream-dark: #f5e7cd;
+    --white: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--ink);
+    background: #e9edf0;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================================
+   2. LOGIN PAGE
+   Original login design preserved
+========================================= */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 56% 44%;
+    background: var(--orange);
+}
+
+.login-photo {
+    min-height: 100vh;
+    position: relative;
+    background-image: url("images/ctu_login_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0 100px 100px 0;
+}
+
+.login-image {
+    background-image: url("images/ctu_login_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-photo-content {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.login-hero-logo,
+.ctu_logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+}
+
+.login-campus-text {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login-photo-content h2 {
+    max-width: 80%;
+    margin: 14px auto;
+    color: #ffc629;
+    font-family: Georgia, serif;
+    font-size: clamp(23px, 3vw, 38px);
+    font-weight: bold;
+    -webkit-text-stroke: 2px #000;
+    paint-order: stroke fill;
+}
+
+.login-photo-content h2::after {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 3px;
+    background: #000;
+    margin: 14px auto 0;
+}
+
+.login-photo-content p {
+    margin-top: 14px;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: clamp(17px, 2vw, 25px);
+    font-weight: bold;
+    -webkit-text-stroke: 1px #000;
+    paint-order: stroke fill;
+}
+
+.login-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 34px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    min-height: 430px;
+    margin: auto;
+    padding: 35px 40px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 18px 45px #714b1e22;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+}
+
+.login-card-logo {
+    display: none;
+}
+
+.eyebrow {
+    color: #477c22;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.login-card h1 {
+    margin: 0 0 10px;
+    font-family: Georgia, serif;
+    font-size: 32px;
+    text-align: center;
+}
+
+.login-subtitle {
+    margin: 0 0 22px;
+    color: #687064;
+    font-size: 13px;
+    text-align: center;
+}
+
+.login-card label,
+.register-card label,
+.event-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.login-card input,
+.login-card select,
+.register-card input,
+.register-card select,
+.event-form input,
+.event-form select,
+.filter-grid input,
+.filter-grid select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d7ddd3;
+    border-radius: 9px;
+    background: white;
+    outline: none;
+}
+
+.login-card input:focus,
+.register-card input:focus {
+    border-color: var(--green);
+}
+
+/* Login account switcher */
+
+.account-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 4px;
+    margin: 0 0 22px;
+    border-radius: 30px;
+    background: #edf0f4;
+}
+
+.account-toggle-btn {
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 25px;
+    background: transparent;
+    color: #273448;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.account-toggle-btn.active {
+    color: white;
+    background: #279a1d;
+    box-shadow: 0 4px 10px rgba(23, 68, 119, .2);
+}
+
+.user-type-group {
+    margin-bottom: 4px;
+}
+
+/* Password visibility */
+
+.password-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrap input {
+    width: 100%;
+    padding-right: 65px !important;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #666;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.eye-icon {
+    width: 21px;
+    height: 21px;
+}
+
+.primary-btn {
+    margin-top: 18px;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--green);
+    color: white;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.primary-btn:hover {
+    background: var(--green-dark);
+}
+
+.login-submit {
+    width: 100%;
+}
+
+.register-line {
+    font-size: 13px;
+    text-align: center;
+}
+
+.register-line a {
+    color: var(--green-dark);
+    font-weight: 700;
+}
+
+.demo-note {
+    margin: 10px 0 0;
+    color: #8b9188;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* =========================================
+   3. REGISTRATION PAGE
+========================================= */
+
+.register-page {
+    min-height: 100vh;
+    padding: 35px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(120deg, #e9f2e5, #f8e6c9);
+}
+
+.register-card {
+    width: min(850px, 100%);
+    padding: 30px;
+    background: white;
+    border-radius: 22px;
+    box-shadow: 0 15px 40px #22332218;
+}
+
+.register-card h1 {
+    margin: 12px 0 4px;
+    font-family: Georgia, serif;
+}
+
+.register-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 18px;
+}
+
+.register-grid .full {
+    grid-column: 1 / -1;
+}
+
+.text-btn {
+    border: 0;
+    background: none;
+    color: var(--green-dark);
+    font-weight: 700;
+}
+
+/* =========================================
+   4. MAIN APPLICATION LAYOUT
+========================================= */
+
+.app-page {
+    min-height: 100vh;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    background: #f8f0df;
+}
+
+/* =========================================
+   5. SIDEBAR
+========================================= */
+
+.sidebar {
+    position: sticky;
+    top: 16px;
+    z-index: 2;
+    height: calc(100vh - 32px);
+    overflow: auto;
+    padding: 22px 16px;
+    background: #07502f;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .12);
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 0 0 35px;
+    text-align: center;
+}
+
+.brand img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: none;
+    box-shadow: none;
+    filter: none;
+}
+
+.brand strong {
+    display: block;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
+
+.brand small {
+    display: block;
+    color: #dcebdc;
+    font-size: 11px;
+}
+
+.sidebar h2 {
+    margin: 0 0 20px;
+    padding-left: 9px;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+}
+
+.sidebar nav {
+    display: grid;
+    gap: 7px;
+}
+
+.nav-link,
+.logout-btn {
+    padding: 13px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    transition: .2s;
+}
+
+.nav-link {
+    margin: 3px 2px;
+}
+
+.nav-link span,
+.logout-btn span {
+    margin-left: 8px;
+    font-size: 13px;
+}
+
+.nav-link:hover {
+    background: #ffffff20;
+    transform: translateX(3px);
+}
+
+.nav-link.active {
+    background: #e8b934;
+    color: #173c24;
+    font-weight: bold;
+}
+
+.logout-btn {
+    width: 100%;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px solid #ffffff55;
+    border-radius: 0;
+}
+
+/* =========================================
+   6. MAIN CONTENT AND TOPBAR
+========================================= */
+
+.main-area {
+    min-width: 0;
+    min-height: calc(100vh - 32px);
+    padding: 25px 30px;
+    background: #fbf4e7;
+    border-radius: 15px;
+}
+
+.topbar {
+    width: 100%;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.topbar-heading h1,
+.topbar h1 {
+    margin: 0 0 7px;
+    color: #17462b;
+    font-family: Arial, sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.topbar-heading p {
+    margin: 0;
+    color: #766b58;
+    font-size: 13px;
+}
+
+.campus-label {
+    color: #397345;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* =========================================
+   7. NOTIFICATIONS
+========================================= */
+
+.notification-wrapper {
+    position: relative;
+}
+
+.notification-btn {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    color: #174c2b;
+    font-size: 25px;
+}
+
+.bell-icon {
+    font-size: 25px;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 9px;
+    height: 9px;
+    border: 2px solid #fbf4e7;
+    border-radius: 50%;
+    background: #e53935;
+}
+
+.notification-panel {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    z-index: 1000;
+    width: 300px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 5px 20px #0002;
+}
+
+.notification-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.notification-header button {
+    border: none;
+    background: none;
+    font-size: 22px;
+}
+
+.notification-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+.notification-item small {
+    display: block;
+    margin-top: 5px;
+    color: #777;
+}
+
+/* =========================================
+   8. USER CHIP AND AVATAR
+========================================= */
+
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 9px 17px;
+    border: 1px solid #ead9bc;
+    border-radius: 30px;
+    background: #fff9ed;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .05);
+    font-size: 13px;
+}
+
+.user-avatar {
+    width: 39px;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #278b22;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user-info strong {
+    display: block;
+    color: #174c2b;
+    font-size: 13px;
+}
+
+.user-info small {
+    display: block;
+    margin-top: 3px;
+    color: #766b58;
+    font-size: 11px;
+}
+
+/* =========================================
+   9. STUDENT AND FACULTY BANNER
+========================================= */
+
+.student-banner {
+    width: 100%;
+    height: 190px;
+    margin-bottom: 22px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, .38);
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 65, 35, .75),
+            rgba(0, 65, 35, .15)
+        ),
+        url("images/student-banner.jpg") center / cover;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .17);
+    transition: .25s;
+}
+
+.student-banner:hover {
+    transform: translateY(-4px);
+}
+
+.dashboard-banner-content h2 {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+.dashboard-banner-content p {
+    margin: 0;
+    color: white;
+    font-size: 15px;
+}
+
+/* =========================================
+   10. DASHBOARD STATISTICS
+========================================= */
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.stat-card {
+    min-height: 82px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px solid #ead6b3;
+    border-radius: 15px;
+    background: #f6e7cb;
+    color: #17462b;
+    box-shadow: 0 4px 12px rgba(85, 60, 25, .08);
+    transition: .25s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px #00000012;
+}
+
+.stat-card span {
+    color: #66746a;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.stat-card strong {
+    margin-top: 4px;
+    color: #174c2b;
+    font-family: Georgia, serif;
+    font-size: 26px;
+}
+
+.stat-card.gold,
+.stat-card.green {
+    background: #f6e7cb;
+    color: #174c2b;
+}
+
+/* =========================================
+   11. DASHBOARD PANELS
+========================================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.panel {
+    min-width: 0;
+    margin-bottom: 18px;
+    padding: 22px;
+    border: 1px solid #e5cfaa;
+    border-radius: 17px;
+    background: #f5e7cd;
+    box-shadow: 0 4px 14px rgba(85, 60, 25, .08);
+    transition: .25s;
+}
+
+.panel:hover {
+    box-shadow: 0 8px 20px rgba(85, 60, 25, .12);
+}
+
+.panel h2 {
+    margin: 0 0 14px;
+    color: #17462b;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.panel-heading h2 {
+    margin: 0;
+}
+
+.small-btn,
+.month-controls button {
+    padding: 9px 12px;
+    border: 1px solid #c8d9bc;
+    border-radius: 8px;
+    background: #e2edda;
+    color: #175332;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =========================================
+   12. MINI CALENDAR
+========================================= */
+
+.mini-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 18px;
+}
+
+.mini-calendar span {
+    min-height: 29px;
+    display: grid;
+    place-items: center;
+    border: 1px solid #ead9b9;
+    border-radius: 8px;
+    background: #fff8eb;
+    color: #344b38;
+    font-size: 12px;
+}
+
+.mini-calendar .day-name {
+    background: #175332;
+    color: white;
+    font-weight: bold;
+}
+
+.mini-calendar .has-event {
+    background: #cce3bd;
+    color: #174c2b;
+    font-weight: bold;
+}
+
+/* =========================================
+   13. UPCOMING EVENTS
+========================================= */
+
+.event-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 17px;
+}
+
+.event-item {
+    padding: 17px;
+    border: 1px solid #ead9bc;
+    border-left: 5px solid #d9ad32;
+    border-radius: 13px;
+    background: #fff8ed;
+    box-shadow: 0 3px 9px rgba(80, 60, 30, .07);
+    transition: .2s;
+}
+
+.event-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(80, 60, 30, .12);
+}
+
+.event-item strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #183f27;
+    font-size: 15px;
+}
+
+.event-item small {
+    color: #766b58;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   14. ATTENDANCE OVERVIEW
+========================================= */
+
+.overview-content {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 18px 4px 5px;
+}
+
+.donut {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: conic-gradient(
+        #286b42 0% 85%,
+        #e6bd57 85% 100%
+    );
+}
+
+.donut > div {
+    width: 88px;
+    height: 88px;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    background: #f5e7cd;
+    text-align: center;
+}
+
+.donut strong {
+    font-family: Georgia, serif;
+    font-size: 22px;
+}
+
+.donut small {
+    color: #687064;
+    font-size: 10px;
+}
+
+.overview-legend p {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+}
+
+.overview-legend b {
+    margin-left: auto;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.present-dot {
+    background: #4285ed;
+}
+
+.absent-dot {
+    background: #a887ed;
+}
+
+.upcoming-dot {
+    background: #f3c65c;
+}
+
+/* =========================================
+   15. FULL CALENDAR
+========================================= */
+
+.month-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.full-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.full-calendar div {
+    min-height: 75px;
+    padding: 9px;
+    border: 1px solid #ead9b9;
+    border-radius: 9px;
+    background: #fff8eb;
+    font-size: 13px;
+}
+
+.full-calendar .cal-head {
+    min-height: auto;
+    background: #175332;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.full-calendar .cal-event {
+    display: block;
+    margin-top: 7px;
+    padding: 4px;
+    border-radius: 5px;
+    background: #d7e8ca;
+    color: #175332;
+    font-size: 10px;
+}
+
+/* =========================================
+   16. EVENT MANAGEMENT
+========================================= */
+
+.event-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 18px;
+}
+
+.event-form .primary-btn {
+    align-self: end;
+}
+
+.managed-event {
+    margin-bottom: 15px;
+    padding: 20px;
+    border: 1px solid #e5cfaa;
+    border-radius: 13px;
+    background: white;
+    box-shadow: 0 3px 12px #00000008;
+}
+
+.event-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+/* Event action buttons */
+.event-actions button {
+    padding: 8px 12px;
+    font-size: 13px;
+    min-width: 75px;
+    height: 34px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Edit button */
+.edit-btn {
+    background: #3498db;
+    color: white;
+}
+
+/* Delete button */
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+/* Closed Attendance button */
+.close-attendance-btn {
+    background: #f39c12;
+    color: white;
+}
+
+.event-status {
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #e4f4e5;
+    color: #26703a;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background: #fff1c7;
+    color: #795500;
+}
+
+.delete-btn {
+    background: #ffe6e6;
+    color: #b52d2d;
+}
+
+.event-actions button:hover {
+    opacity: .8;
+}
+
+.event-details strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.event-details small {
+    display: block;
+    color: #6e7769;
+}
+
+/* =========================================
+   17. QR ATTENDANCE
+========================================= */
+
+.qr-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.qr-panel {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #e5cfaa;
+    border-radius: 17px;
+    background: #f5e7cd;
+    box-shadow: 0 5px 20px #00000008;
+    text-align: center;
+}
+
+.qr-panel h2 {
+    margin-bottom: 12px;
+    color: #175332;
+}
+
+.qr-panel p {
+    color: #697366;
+    line-height: 1.6;
+}
+
+.qr-panel label {
+    display: block;
+    margin: 20px 0 8px;
+    color: #285d19;
+    font-weight: bold;
+    text-align: left;
+}
+
+.qr-panel select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #cbd8c4;
+    border-radius: 9px;
+    background: white;
+    font-size: 14px;
+}
+
+.qr-panel button {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.qr-panel .primary-btn {
+    width: 100%;
+    background: #176139;
+}
+
+/* Admin QR layout */
+
+#adminQRSection.qr-layout:not(.hidden) {
+    max-width: 1050px;
+    margin: 35px auto;
+    grid-template-columns: minmax(300px, .9fr) minmax(320px, 1fr);
+    gap: 25px;
+    align-items: stretch;
+}
+
+/* QR controls */
+
+#adminQRSection .qr-controls {
+    padding: 25px;
+    border: 1px solid #e5d0aa;
+    border-radius: 17px;
+    background: #f5e7cd;
+    box-shadow: 0 5px 18px rgba(80, 60, 30, .08);
+}
+
+#adminQRSection .qr-heading h2 {
+    margin-bottom: 8px;
+    color: #175332;
+    font-size: 22px;
+}
+
+#adminQRSection .qr-heading p {
+    margin-bottom: 30px;
+    color: #756b5a;
+    line-height: 1.6;
+}
+
+#adminQRSection .qr-select-box {
+    margin-bottom: 15px;
+    padding: 17px;
+    border: 1px solid #e8d8bb;
+    border-radius: 12px;
+    background: #fff9ef;
+}
+
+#adminQRSection .qr-select-box label {
+    display: block;
+    margin-bottom: 10px;
+    color: #174c2b;
+    font-weight: bold;
+}
+
+#adminQRSection .qr-select-box select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8c8a9;
+    border-radius: 9px;
+    background: white;
+    font-size: 14px;
+}
+
+#adminQRSection .qr-controls .primary-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 9px;
+    background: #176139;
+    color: white;
+    font-weight: bold;
+}
+
+/* QR success message */
+
+#adminQRSection .qr-success-message {
+    margin-top: 18px;
+    padding: 13px;
+    border-radius: 10px;
+    background: #e2f1df;
+    color: #246438;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.success-message {
+    color: #267517 !important;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #c62828 !important;
+}
+
+/* QR result card */
+
+#adminQRSection .qr-result-card {
+    overflow: hidden;
+    padding: 0;
+    border: 1px solid #e7d4b3;
+    border-radius: 17px;
+    background: #fff9ef;
+    box-shadow: 0 5px 18px rgba(80, 60, 30, .09);
+    text-align: center;
+}
+
+#adminQRSection .qr-result-header {
+    padding: 19px;
+    background: #176139;
+    color: white;
+}
+
+#adminQRSection .qr-result-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 20px;
+}
+
+#adminQRSection .qr-result-body {
+    padding: 25px 20px;
+}
+
+.qr-display {
+    margin-top: 25px;
+    padding: 25px;
+    border: 1px solid #dce8d5;
+    border-radius: 16px;
+    background: #f7faf6;
+}
+
+.qr-display h3 {
+    margin-bottom: 20px;
+    color: #174f12;
+}
+
+#qrCodeOutput {
+    width: fit-content;
+    min-width: 200px;
+    min-height: 200px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: white;
+}
+
+#adminQRSection #qrCodeOutput {
+    min-width: 250px;
+    min-height: 250px;
+    margin: 0 auto 18px;
+    padding: 15px;
+    border: 1px solid #eadfc9;
+    border-radius: 13px;
+}
+
+#qrCodeOutput canvas,
+#qrCodeOutput img {
+    max-width: 100%;
+    height: auto;
+}
+
+#adminQRSection .qr-instruction {
+    margin: 15px 0;
+    color: #756b5a;
+    line-height: 1.6;
+}
+
+#adminQRSection #qrExpiration {
+    margin: 12px 0;
+    color: #175332;
+    font-weight: bold;
+}
+
+#projectorBtn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #176139;
+    color: white;
+}
+
+#adminQRSection #projectorBtn {
+    margin: 8px 4px;
+    padding: 12px;
+}
+
+#closeQRBtn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #a52a2a;
+    color: white;
+}
+
+#adminQRSection #closeQRBtn {
+    margin: 8px 4px;
+    background: #a84b3c;
+}
+
+#studentScanMessage,
+#adminQRMessage {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Student camera scanner */
+
+#scannerContainer {
+    width: 100%;
+    max-width: 450px;
+    margin: 25px auto;
+    padding: 12px;
+    border: 1px solid #dce8d5;
+    border-radius: 15px;
+    background: #f5f8f2;
+}
+
+#qrReader {
+    width: 100%;
+    min-height: 180px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#qrReader video {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.qr-placeholder {
+    width: 160px;
+    height: 160px;
+    margin: 25px auto 12px;
+    display: grid;
+    place-items: center;
+    border: 8px dashed #79a965;
+    border-radius: 20px;
+    color: #3e8b20;
+    font-size: 90px;
+}
+
+/* =========================================
+   18. TABLES AND REPORTS
+========================================= */
+
+.table-wrap {
+    overflow: auto;
+    margin-top: 18px;
+}
+
+table {
+    width: 100%;
+    overflow: hidden;
+    border-collapse: collapse;
+    border-radius: 10px;
+    background: #fff8ed;
+    font-size: 13px;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e7e9e5;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th {
+    background: #175332;
+    color: white;
+}
+
+td {
+    background: #fff8ed;
+    color: #344438;
+}
+
+.filter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.filter-grid button {
+    margin: 0;
+}
+
+.muted {
+    color: #778071;
+    font-size: 12px;
+}
+
+/* =========================================
+   19. PROFILE PAGE
+========================================= */
+
+.profile-panel {
+    max-width: 700px;
+}
+
+.profile-picture-section {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    width: 125px;
+    height: 125px;
+    flex-shrink: 0;
+}
+
+.profile-picture,
+.profile-picture-placeholder {
+    width: 125px;
+    height: 125px;
+    border: 4px solid var(--gold);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-picture {
+    position: absolute;
+    inset: 0;
+    background: white;
+}
+
+.profile-picture-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #07502f;
+    color: white;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.change-picture-btn {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #07502f;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.change-picture-btn:hover {
+    background: #22640b;
+}
+
+.profile-information {
+    display: grid;
+    gap: 12px;
+}
+
+.profile-detail {
+    padding: 13px;
+    border-radius: 8px;
+    background: #f8f8f8;
+}
+
+/* =========================================
+   20. FOOTER AND MISCELLANEOUS
+========================================= */
+
+footer {
+    padding: 15px;
+    color: #52624d;
+    font-size: 11px;
+    text-align: center;
+}
+
+.dashboard {
+    background-image:
+        linear-gradient(rgba(20, 50, 30, .65), rgba(20, 50, 30, .65)),
+        url("images/ctu_dashboard_background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* =========================================
+   21. RESPONSIVE DESIGN - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .app-page {
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 16px;
+        padding: 14px;
+    }
+
+    .sidebar {
+        top: 14px;
+        height: calc(100vh - 28px);
+        padding: 18px 10px;
+    }
+
+    .main-area {
+        padding: 20px;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-page {
+        grid-template-columns: 52% 48%;
+    }
+
+    .login-photo {
+        border-radius: 0 60px 60px 0;
+    }
+}
+
+/* =========================================
+   22. RESPONSIVE DESIGN - MOBILE
+========================================= */
+
+@media (max-width: 620px) {
+
+    /* Login */
+
+    .login-page {
+        grid-template-columns: 1fr;
+        background: #f5b967;
+    }
+
+    .login-photo {
+        min-height: 35vh;
+        border-radius: 0 0 45px 45px;
+    }
+
+    .login-side {
+        padding: 20px;
+    }
+
+    .login-card {
+        min-height: 0;
+        padding: 28px;
+    }
+
+    .login-photo-content {
+        top: 45%;
+    }
+
+    /* Registration */
+
+    .register-page {
+        padding: 15px;
+    }
+
+    .register-card {
+        padding: 20px;
+    }
+
+    .register-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .register-grid .full {
+        grid-column: auto;
+    }
+
+    /* Main layout */
+
+    .app-page {
+        display: block;
+        padding: 8px;
+        background-attachment: scroll;
+    }
+
+    .sidebar {
+        position: relative;
+        top: auto;
+        height: auto;
+        margin: 0 0 16px;
+        padding: 13px;
+        border-radius: 22px;
+        background: #07502f;
+    }
+
+    .brand {
+        margin: 0 0 14px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 8px;
+        font-size: 18px;
+    }
+
+    .sidebar nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-link {
+        padding: 9px 7px;
+    }
+
+    .nav-link span {
+        font-size: 11px;
+    }
+
+    .logout-btn {
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .main-area {
+        min-height: auto;
+        padding: 15px;
+        border-radius: 22px;
+    }
+
+    /* Header */
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .topbar-right {
+        align-self: flex-end;
+        gap: 12px;
+    }
+
+    .topbar-heading h1,
+    .topbar h1 {
+        font-size: 22px;
+    }
+
+    .user-chip {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+
+    /* Dashboard */
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 9px;
+    }
+
+    .stat-card {
+        min-height: 75px;
+        padding: 13px;
+        border-radius: 12px;
+    }
+
+    .stat-card span {
+        font-size: 11px;
+    }
+
+    .stat-card strong {
+        font-size: 22px;
+    }
+
+    .panel {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .panel h2 {
+        font-size: 20px;
+    }
+
+    .overview-content {
+        gap: 20px;
+    }
+
+    .donut {
+        width: 120px;
+        height: 120px;
+    }
+
+    .donut > div {
+        width: 72px;
+        height: 72px;
+    }
+
+    .student-banner {
+        height: 150px;
+        padding: 20px;
+    }
+
+    .dashboard-banner-content h2 {
+        font-size: 23px;
+    }
+
+    .dashboard-banner-content p {
+        font-size: 13px;
+    }
+
+    /* Forms */
+
+    .event-form,
+    .filter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Calendar */
+
+    .full-calendar {
+        gap: 4px;
+    }
+
+    .full-calendar div {
+        min-height: 54px;
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    /* Events */
+
+    .managed-event {
+        padding: 14px;
+    }
+
+    .event-actions {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    /* QR */
+
+    .qr-panel {
+        padding: 18px;
+    }
+
+    .qr-display {
+        padding: 15px;
+    }
+
+    #qrCodeOutput {
+        min-width: 180px;
+        min-height: 180px;
+        padding: 12px;
+    }
+
+    #scannerContainer {
+        padding: 8px;
+    }
+
+    .qr-panel button {
+        width: 100%;
+    }
+
+    #adminQRSection.qr-layout:not(.hidden) {
+        grid-template-columns: 1fr;
+        margin: 15px auto;
+    }
+
+    #adminQRSection #qrCodeOutput {
+        min-width: 220px;
+        min-height: 220px;
+    }
+
+    /* Profile */
+
+    .profile-picture-section {
+        gap: 15px;
+    }
+
+    /* Notification */
+
+    .notification-panel {
+        width: min(300px, 85vw);
+    }
+}
+
+.login-hero-logo {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    padding: 5px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.88);   /* <-- this is the white circle */
+}
+
+.login-hero-logo {
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    filter: none;
+}
+
+
+/* =====================================
+   MOBILE HAMBURGER NAVIGATION
+===================================== */
+
+/* Hidden on desktop */
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 620px) {
+
+    /* Hamburger button */
+    .menu-toggle {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border: none;
+        border-radius: 10px;
+        background: #07502f;
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+        z-index: 1002;
+    }
+
+    /* Topbar arrangement */
+    .topbar {
+        display: flex;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 12px;
+    }
+
+    .topbar-heading {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .topbar-right {
+        align-self: center;
+        flex-shrink: 0;
+    }
+
+    /* Sidebar closed by default */
+    .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0;
+        width: min(85%, 320px);
+        height: 100dvh !important;
+        max-height: 100dvh;
+        margin: 0 !important;
+        padding: 25px 16px !important;
+        border-radius: 0 22px 22px 0 !important;
+        overflow-y: auto;
+        z-index: 1001;
+
+        transform: translateX(-110%);
+        transition: transform 0.3s ease;
+    }
+
+    /* Sidebar open */
+    .app-page.menu-open .sidebar {
+        transform: translateX(0);
+    }
+
+    /* Dark background when menu is open */
+    .app-page::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+        transition: 0.3s ease;
+    }
+
+    .app-page.menu-open::before {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Restore navigation layout */
+    .sidebar nav {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        gap: 7px;
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 13px !important;
+        font-size: 14px;
+    }
+
+    .nav-link span {
+        font-size: 13px !important;
+    }
+
+    .brand {
+        margin-bottom: 30px;
+    }
+
+    .logout-btn {
+        width: 100%;
+        margin-top: 25px;
+    }
+}
