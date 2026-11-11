@@ -4,15 +4,11 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 try {
-    $host = getenv('MYSQLHOST') ?: 'localhost';
+    $host = getenv('MYSQLHOST') ?: 'mysql.railway.internal';
     $port = (int)(getenv('MYSQLPORT') ?: 3306);
     $dbname = getenv('MYSQLDATABASE') ?: 'ctu_eventattendance';
     $username = getenv('MYSQLUSER') ?: 'root';
     $password = getenv('MYSQLPASSWORD') ?: '';
-
-    if ($host === 'localhost') {
-        throw new RuntimeException('MYSQLHOST is not configured.');
-    }
 
     $conn = new mysqli(
         $host,
