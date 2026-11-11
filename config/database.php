@@ -4,22 +4,14 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 try {
-    $databaseUrl = getenv('DATABASE_URL');
+    $host = getenv('MYSQLHOST') ?: 'localhost';
+    $port = (int)(getenv('MYSQLPORT') ?: 3306);
+    $dbname = getenv('MYSQLDATABASE') ?: 'ctu_eventattendance';
+    $username = getenv('MYSQLUSER') ?: 'root';
+    $password = getenv('MYSQLPASSWORD') ?: '';
 
-    if ($databaseUrl) {
-        $db = parse_url($databaseUrl);
-
-        $host = $db['host'];
-        $port = $db['port'] ?? 3306;
-        $username = $db['user'];
-        $password = $db['pass'];
-        $dbname = ltrim($db['path'] ?? '', '/');
-    } else {
-        $host = getenv('MYSQLHOST') ?: 'localhost';
-        $port = (int)(getenv('MYSQLPORT') ?: 3306);
-        $dbname = getenv('MYSQLDATABASE') ?: 'ctu_eventattendance';
-        $username = getenv('MYSQLUSER') ?: 'root';
-        $password = getenv('MYSQLPASSWORD') ?: '';
+    if ($host === 'localhost') {
+        throw new RuntimeException('MYSQLHOST is not configured.');
     }
 
     $conn = new mysqli(
@@ -27,7 +19,7 @@ try {
         $username,
         $password,
         $dbname,
-        (int)$port
+        $port
     );
 
     $conn->set_charset('utf8mb4');
