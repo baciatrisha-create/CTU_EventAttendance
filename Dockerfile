@@ -4,8 +4,10 @@ FROM php:8.2-apache
 RUN rm -f /etc/apache2/mods-enabled/mpm_*.load \
           /etc/apache2/mods-enabled/mpm_*.conf \
     && a2enmod mpm_prefork rewrite \
-    && echo "=== ACTIVE MPM CONFIGURATION ===" \
-    && (grep -RniE 'LoadModule[[:space:]]+mpm_' /etc/apache2 || true) \
+    && rm -f /etc/apache2/mods-available/mpm_event.load \
+              /etc/apache2/mods-available/mpm_event.conf \
+              /etc/apache2/mods-available/mpm_worker.load \
+              /etc/apache2/mods-available/mpm_worker.conf \
     && docker-php-ext-install mysqli
 
 WORKDIR /var/www/html
