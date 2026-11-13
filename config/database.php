@@ -6,6 +6,10 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try {
 
     $databaseUrl = getenv('DATABASE_URL');
+    error_log('DATABASE_URL: ' . ($databaseUrl ? 'SET' : 'MISSING'));
+    error_log('MYSQLHOST: ' . (getenv('MYSQLHOST') ? 'SET' : 'MISSING'));
+    error_log('MYSQLUSER: ' . (getenv('MYSQLUSER') ? 'SET' : 'MISSING'));
+    error_log('MYSQLDATABASE: ' . (getenv('MYSQLDATABASE') ? 'SET' : 'MISSING'));
 
     if (!empty($databaseUrl)) {
 
